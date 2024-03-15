@@ -40,6 +40,32 @@ const CHALLENGE_COMMAND = {
   type: 1,
 };
 
-const ALL_COMMANDS = [TEST_COMMAND, CHALLENGE_COMMAND];
+const RAND_COMMAND = {
+  name: 'rand',
+  description: 'Random number',
+  type: 1,
+}
+
+const MOVE_USER_COMMAND = {
+  name: 'moveuser',
+  description: 'Move a user to a different channel',
+  options: [
+    {
+      type: 6,
+      name: 'user',
+      description: 'User to move',
+      required: true,
+    },
+    {
+      type: 7,
+      name: 'channel',
+      description: 'Channel to move user to',
+      required: true,
+    },
+  ],
+  type: 1,
+};
+
+const ALL_COMMANDS = [TEST_COMMAND, CHALLENGE_COMMAND, MOVE_USER_COMMAND, RAND_COMMAND];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);
